@@ -5,31 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Scott James Performance | Science-Based Coaching</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Manrope', 'sans-serif'],
+              sans: ['Inter', 'system-ui', 'sans-serif'],
             },
             colors: {
+              // Primary brand color (vibrant lime green)
               brand: {
                 50: '#f4fdf0',
                 100: '#e8fce0',
                 200: '#c9f7b4',
+                300: '#a8f090',
                 400: '#a0f084',
                 500: '#7FD758',
                 600: '#5fb838',
                 700: '#4a9429',
+                800: '#2d5a1a',
                 900: '#1e3d0f',
                 950: '#0f1f08',
               },
+              // Dark backgrounds
               onyx: {
                 800: '#1c1917',
                 900: '#0c0a09',
                 950: '#040302',
+              },
+              // Extended grey scale for refined UI
+              grey: {
+                300: '#d1d5db',
+                400: '#9ca3af',
+                500: '#6b7280',
+                600: '#4b5563',
+                700: '#374151',
+                800: '#1f2937',
               }
+            },
+            // Dramatic spacing scale
+            spacing: {
+              '18': '4.5rem',
+              '22': '5.5rem',
+              '26': '6.5rem',
+              '30': '7.5rem',
+              '34': '8.5rem',
+              '38': '9.5rem',
+              '42': '10.5rem',
+            },
+            fontSize: {
+              // Display sizes for hero headlines
+              '6xl': ['3.75rem', { lineHeight: '1', letterSpacing: '-0.02em', fontWeight: '300' }],
+              '7xl': ['4.5rem', { lineHeight: '1', letterSpacing: '-0.02em', fontWeight: '300' }],
+              '8xl': ['6rem', { lineHeight: '0.95', letterSpacing: '-0.02em', fontWeight: '300' }],
+              '9xl': ['8rem', { lineHeight: '0.9', letterSpacing: '-0.02em', fontWeight: '300' }],
+            },
+            borderRadius: {
+              '4xl': '2rem',
+              '5xl': '2.5rem',
             }
           }
         }
@@ -39,12 +73,94 @@
       body {
         background-color: #040302;
         color: #ffffff;
-        font-family: 'Manrope', sans-serif;
+        font-family: 'Inter', system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
+      
+      /* Glass panel effect */
       .glass-panel {
         background: rgba(255, 255, 255, 0.03);
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      
+      /* Bold container style */
+      .bold-container {
+        background: #0c0a09;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 1.5rem;
+      }
+      
+      /* Light headline utility */
+      .headline-light {
+        font-weight: 300;
+        letter-spacing: -0.02em;
+      }
+      
+      /* Scrollbar styling for testimonial carousel */
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      
+      /* Subtle hover transitions */
+      .hover-subtle {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      /* Gradient accents - unified brand only */
+      .gradient-brand {
+        background: linear-gradient(135deg, rgba(127, 215, 88, 0.1) 0%, transparent 50%);
+      }
+      .gradient-muted {
+        background: linear-gradient(135deg, rgba(107, 114, 128, 0.1) 0%, transparent 50%);
+      }
+      
+      /* Mobile-first optimizations */
+      @media (max-width: 768px) {
+        /* Ensure minimum touch targets */
+        button, a {
+          min-height: 48px;
+        }
+        
+        /* Reduce padding on mobile for better space usage */
+        .rounded-4xl {
+          border-radius: 1.5rem;
+        }
+        
+        /* Mobile typography scaling */
+        h1 {
+          font-size: clamp(2rem, 8vw, 4.5rem);
+          line-height: 1.1;
+        }
+        
+        h2 {
+          font-size: clamp(1.5rem, 6vw, 3rem);
+        }
+        
+        /* Prevent horizontal scroll on mobile */
+        body {
+          overflow-x: hidden;
+        }
+        
+        /* Safe area padding for notched devices */
+        @supports (padding: env(safe-area-inset-bottom)) {
+          footer {
+            padding-bottom: calc(3rem + env(safe-area-inset-bottom));
+          }
+        }
+      }
+      
+      /* Reduced motion preference */
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+        }
       }
     </style>
   <script type="importmap">

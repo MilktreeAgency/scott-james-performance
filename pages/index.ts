@@ -1,0 +1,10 @@
+export { default as HomePage } from './HomePage';
+export { default as AboutPage } from './AboutPage';
+export { default as FatLossPage } from './FatLossPage';
+export { default as PerformancePage } from './PerformancePage';
+export { default as OnlineCoachingPage } from './OnlineCoachingPage';
+export { default as PersonalTrainingPage } from './PersonalTrainingPage';
+export { default as ResultsPage } from './ResultsPage';
+export { default as ResourcesPage } from './ResourcesPage';
+export { default as ArticlePage } from './ArticlePage';
+export { default as StyleGuidePage } from './StyleGuidePage';

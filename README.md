@@ -12,9 +12,30 @@ View your app in AI Studio: https://ai.studio/apps/drive/15LpHvq5L0n3zWH61-DJ9sW
 
 **Prerequisites:**  Node.js
 
-
 1. Install dependencies:
-   `npm install`
+   ```bash
+   npm install
+   ```
+
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+   **The app will ALWAYS run on:** `http://127.0.0.1:8080`
+   
+   - Port 8080 is strictly enforced (will error if port is busy)
+   - Hot Module Replacement (HMR) is enabled for instant updates
+   - If port 8080 is in use, stop the existing process first
+
+4. Build for production:
+   ```bash
+   npm run build
+   ```
+
+5. Preview production build:
+   ```bash
+   npm run preview
+   ```
