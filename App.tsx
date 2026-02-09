@@ -541,15 +541,15 @@ const Navbar = () => {
           : 'py-6'
       }`}
       style={{
-        backgroundColor: scrolled || isOpen ? 'rgb(4, 3, 2)' : 'rgba(4, 3, 2, 0.3)',
-        WebkitBackdropFilter: 'blur(20px)',
-        backdropFilter: 'blur(20px)',
+        backgroundColor: scrolled || isOpen ? 'rgb(4, 3, 2)' : 'transparent',
+        WebkitBackdropFilter: scrolled || isOpen ? 'blur(20px)' : 'none',
+        backdropFilter: scrolled || isOpen ? 'blur(20px)' : 'none',
         boxShadow: scrolled ? '0 4px 6px -1px rgba(0, 0, 0, 0.3)' : 'none'
       }}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-3 z-50 relative">
-          <img src="/SJ LOGO.avif" alt="Scott James Performance" className="h-12 w-auto" />
+          <img src="/SJ LOGO.avif" alt="Scott James Performance" className="h-[75px] w-auto" />
         </Link>
         
         <div className="hidden md:flex items-center gap-8 bg-onyx-900/60 p-1.5 pl-6 pr-1.5 rounded-full border border-white/10 backdrop-blur-md">

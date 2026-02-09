@@ -8,7 +8,8 @@ import {
   ProofTestimonial,
   SignaturePhilosophyBlock,
   FullBleedHero,
-  ImagePlaceholder
+  ImagePlaceholder,
+  ImageTextBlock
 } from '../components/shared';
 
 export default function PerformancePage({ onApply }: { onApply: () => void }) {
@@ -20,7 +21,7 @@ export default function PerformancePage({ onApply }: { onApply: () => void }) {
         imageAlt="Performance coaching"
         badge="Performance Coaching"
         title={<>Performance coaching<br /><span className="text-brand-400">for serious athletes</span></>}
-        subtitle="Structured programming for Hyrox competitors, endurance athletes, and experienced trainers ready to push their performance to the next level."
+        subtitle="Structured programming for hybrid endurance athletes, including HYROX, ATHX Games, marathon runners, and sport-specific coaching."
         height="tall"
         overlayIntensity="heavy"
       >
@@ -35,9 +36,9 @@ export default function PerformancePage({ onApply }: { onApply: () => void }) {
         forYou={{
           title: "This is for you if...",
           items: [
-            "You're training for Hyrox or similar competitive events",
+            "You're training for HYROX, ATHX Games, marathons, or similar competitive events",
             "You have existing training experience and want structured progression",
-            "You're an endurance athlete looking for performance optimisation",
+            "You're a hybrid endurance athlete looking for performance optimisation",
             "You want periodised programming, not random workouts",
             "You understand that performance requires consistent, long-term work",
             "You're ready to train 4+ times per week"
@@ -55,6 +56,48 @@ export default function PerformancePage({ onApply }: { onApply: () => void }) {
           note: "Performance coaching requires a higher baseline. If you're newer to training, start with general coaching first."
         }}
       />
+
+      {/* Hybrid Endurance Athletes Section */}
+      <Section spacing="large">
+        <div className="max-w-6xl mx-auto">
+          <ImageTextBlock
+            imageSrc="/performance-who.jpg"
+            imageAlt="Hybrid endurance athlete training"
+            badge="Who We Coach"
+            title="Hybrid Endurance Athletes"
+            imagePosition="left"
+            aspectRatio="4/5"
+          >
+            <p>
+              Whether you're preparing for HYROX, competing in ATHX Games, training for a marathon, or pursuing sport-specific goals - structured programming makes the difference between showing up and performing.
+            </p>
+            <p>
+              Hybrid endurance athletes need a different approach. You're not just building endurance or just building strength - you need both, balanced intelligently around your competition calendar.
+            </p>
+          </ImageTextBlock>
+        </div>
+      </Section>
+
+      {/* Structured Programming Section */}
+      <Section dark spacing="large">
+        <div className="max-w-6xl mx-auto">
+          <ImageTextBlock
+            imageSrc="/performance-our-approach.jpg"
+            imageAlt="Structured training programming"
+            badge="Our Approach"
+            title="Built Around Your Calendar"
+            imagePosition="right"
+            aspectRatio="4/5"
+          >
+            <p>
+              Every performance programme is periodised around your competition schedule. Base building phases, intensity blocks, peak weeks, and intelligent tapers - all timed to have you performing when it matters.
+            </p>
+            <p>
+              This isn't random workouts that leave you constantly fatigued. It's structured progression that builds capacity while managing recovery.
+            </p>
+          </ImageTextBlock>
+        </div>
+      </Section>
 
       {/* Methodology - Simplified */}
       <Section dark spacing="large">
@@ -146,39 +189,24 @@ export default function PerformancePage({ onApply }: { onApply: () => void }) {
         onApply={onApply}
       />
 
-      {/* Visual Break - Competition Imagery */}
-      <Section dark spacing="large">
+      {/* Race Day Preparation Section */}
+      <Section spacing="large">
         <div className="max-w-6xl mx-auto">
-          <div className="mb-12">
-            <p className="text-brand-400 text-sm tracking-widest uppercase mb-6">Competition Ready</p>
-            <h2 className="text-3xl md:text-4xl font-light text-white tracking-tight">
-              From training to race day
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-4">
-            <div className="rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-300" style={{ aspectRatio: '4/5' }}>
-              <img 
-                src="/performance-1.jpg"
-                alt="Hyrox sled push"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-300" style={{ aspectRatio: '4/5' }}>
-              <img 
-                src="/performance-2.jpg"
-                alt="Running training"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-300" style={{ aspectRatio: '4/5' }}>
-              <img 
-                src="/performance-3.jpg"
-                alt="Functional fitness training"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+          <ImageTextBlock
+            imageSrc="/performance-1.jpg"
+            imageAlt="Race day preparation and strategy"
+            badge="Peak Performance"
+            title="From Training to Race Day"
+            imagePosition="right"
+            aspectRatio="4/5"
+          >
+            <p>
+              The taper phase is where months of work come together. We carefully reduce volume while maintaining intensity, ensuring you arrive on race day fresh but sharp.
+            </p>
+            <p>
+              Elite tier athletes get race-day strategy support - pacing plans, warm-up protocols, and nutrition timing. Every detail matters when performance counts.
+            </p>
+          </ImageTextBlock>
         </div>
       </Section>
 

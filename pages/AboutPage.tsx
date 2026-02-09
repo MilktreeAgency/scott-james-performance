@@ -1,5 +1,6 @@
 import React from 'react';
-import { Dumbbell, Heart, Target, Clock } from 'lucide-react';
+import { Dumbbell, Heart, Target, Clock, Flame, Trophy, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { 
   Section, 
   SignaturePhilosophyBlock,
@@ -31,7 +32,7 @@ export default function AboutPage({ onApply }: { onApply: () => void }) {
           <div className="lg:col-span-2 relative">
             <div className="aspect-[4/5] rounded-4xl overflow-hidden border border-white/10 sticky top-32">
               <img 
-                src="/1abdc8_d253d90d518e4b418b65fb2567ee9267~mv2.avif" 
+                src="/about-1.jpg" 
                 alt="Scott James" 
                 className="w-full h-full object-cover"
               />
@@ -60,15 +61,71 @@ export default function AboutPage({ onApply }: { onApply: () => void }) {
         </div>
       </Section>
 
+      {/* Two Core Services Section */}
+      <Section dark spacing="large">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="mb-20 text-center max-w-3xl mx-auto">
+            <p className="text-brand-400 text-sm tracking-widest uppercase mb-6">Core Services</p>
+            <h2 className="text-3xl md:text-5xl font-light text-white tracking-tight mb-6">
+              Two specializations.<br />
+              <span className="text-brand-400">Built on years of experience.</span>
+            </h2>
+            <p className="text-gray-400 text-lg">
+              Everything I do falls into one of these two areas. Each approach is backed by personal experience and hundreds of client results.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {/* Fat Loss Coaching Card */}
+            <Link to="/fat-loss" className="group">
+              <div className="h-full bg-onyx-950 border border-white/10 rounded-4xl p-10 hover:border-brand-500/30 transition-all duration-300 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-48 h-48 bg-brand-500/5 rounded-full blur-3xl" />
+                <div className="relative z-10">
+                  <div className="w-12 h-12 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-500 mb-8">
+                    <Flame className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-2xl font-light text-white mb-4">Sustainable Fat Loss</h3>
+                  <p className="text-gray-400 mb-8 leading-relaxed">
+                    For busy adults who want to lose weight and keep it off. No crash diets or extreme programmes - just structured coaching that fits your life and actually works long-term.
+                  </p>
+                  <span className="inline-flex items-center gap-2 text-brand-400 font-medium group-hover:gap-3 transition-all">
+                    Learn more <ChevronRight className="w-4 h-4" />
+                  </span>
+                </div>
+              </div>
+            </Link>
+
+            {/* Performance Coaching Card */}
+            <Link to="/performance" className="group">
+              <div className="h-full bg-onyx-950 border border-white/10 rounded-4xl p-10 hover:border-brand-500/30 transition-all duration-300 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-48 h-48 bg-brand-500/5 rounded-full blur-3xl" />
+                <div className="relative z-10">
+                  <div className="w-12 h-12 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-500 mb-8">
+                    <Trophy className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-2xl font-light text-white mb-4">Performance Coaching</h3>
+                  <p className="text-gray-400 mb-8 leading-relaxed">
+                    For athletes, Hyrox competitors, and experienced trainers. Structured periodisation, injury-aware programming, and coaching that gets you ready to perform when it matters.
+                  </p>
+                  <span className="inline-flex items-center gap-2 text-brand-400 font-medium group-hover:gap-3 transition-all">
+                    Learn more <ChevronRight className="w-4 h-4" />
+                  </span>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </Section>
+
       {/* Signature Story Block - The 10-Stone Journey */}
       <EditorialStory
         badge="My Story"
         badgeClassName="bg-brand-900/30 text-brand-400 border border-brand-500/20"
-        title="I lost over 10 stone. Here's what that taught me."
+        title="From Obese to Elite Athlete."
         leadParagraph="I wasn't always a personal trainer. Before I got into fitness, I was significantly overweight - over 10 stone heavier than I am now. I know what it's like to feel uncomfortable in your own body."
-        pullQuote="The approach matters more than the intensity."
+        sidebarImage={{ src: '', alt: 'Scott James transformation story' }}
         bodyParagraphs={[
-          "When I finally made the change, it wasn't through some miracle programme or a 6-week transformation. It was through learning how to eat properly, how to train consistently, and how to build habits that actually stick.",
+          "When I finally made the change, it wasn't through some miracle programme. It was through learning how to eat properly, how to train consistently, and how to build habits that actually stick.",
           "That experience shaped everything about how I coach now. I don't believe in crash diets or unsustainable training schedules. I focus on building something that lasts.",
           "When clients come to me feeling frustrated or like they've failed before, I get it. I've been there."
         ]}

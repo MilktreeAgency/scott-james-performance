@@ -17,6 +17,8 @@ import {
 export default function FatLossPage({ onApply }: { onApply: () => void }) {
   return (
     <>
+      {/* PHASE 1: QUALIFY & CAPTURE ATTENTION */}
+      
       {/* Hero - Full Bleed with action imagery */}
       <FullBleedHero
         imageSrc="/fat-loss-training-hero.jpg"
@@ -34,115 +36,135 @@ export default function FatLossPage({ onApply }: { onApply: () => void }) {
           title: "This is for you if...",
           items: [
             "You're a busy professional or parent with limited time",
-            "You've tried diets before that didn't stick long-term",
-            "You want to lose weight without giving up your social life",
-            "You're looking for structure and accountability",
+            "You've tried diets before that didn't stick",
+            "You want structure and accountability",
             "You're willing to commit to consistent effort over months",
-            "You want to understand why things work, not just be told what to do"
+            "You want to learn why things work, not just follow orders"
           ]
         }}
         notForYou={{
           title: "This isn't for you if...",
           items: [
             "You're looking for a quick fix or rapid transformation",
-            "You want results with minimal effort or commitment",
-            "You're only willing to train once a week with no other activity",
-            "You want someone to just give you a meal plan and disappear",
-            "You're not ready to make changes to your nutrition habits"
+            "You want results with minimal effort",
+            "You're not ready to make nutrition changes",
+            "You want a meal plan with no ongoing support"
           ],
           note: "I'm direct about this because I want to work with people who will actually get results."
         }}
       />
 
-      {/* Philosophy Quote */}
-      <SignaturePhilosophyBlock
-        quote="I'm not going to give you a 1,200 calorie diet and make you do HIIT every day. We work at a pace you can maintain."
-      />
+      {/* PHASE 2: EDUCATE & BUILD TRUST */}
 
-      {/* Process - 3 steps */}
-      <ProcessJourney
-        title="How fat loss coaching works"
-        subtitle="This isn't a templated programme. It's coaching that adapts to your life, your preferences, and your progress."
-        steps={[
-          {
-            number: "1",
-            title: "Sustainable progress over intensity",
-            description: "We work at a pace you can maintain, making gradual changes that add up over time. This means you actually keep the weight off."
-          },
-          {
-            number: "2",
-            title: "Real-time adaptation",
-            description: "Life happens. Work gets busy, kids get sick, stress levels fluctuate. Your coaching adapts accordingly. If you're having a tough week, we adjust."
-          },
-          {
-            number: "3",
-            title: "Nutrition that fits your life",
-            description: "No food is banned. No ridiculous restrictions. I'll teach you how to eat in a way that supports your goals while still enjoying meals out."
-          }
-        ]}
-      />
-
-      {/* Commitment Contract */}
-      <CommitmentContract
-        heading="What commitment looks like"
-        subheading="I'm upfront about what's required. This helps both of us understand if we're a good fit."
-        commitments={[
-          {
-            title: "Training Frequency",
-            description: "Minimum 2-3 structured training sessions per week, plus some form of daily movement. Less than this and results will be slow."
-          },
-          {
-            title: "Communication",
-            description: "Regular check-ins - at least weekly. You need to be responsive and honest about what's happening. Coaching only works if I know what's going on."
-          },
-          {
-            title: "Timeline",
-            description: "Think months, not weeks. Sustainable fat loss takes time. Most clients see meaningful, lasting results over 3-6 months of consistent work."
-          }
-        ]}
-      />
-
-      {/* Visual Break - Lifestyle Imagery with ImageTextBlock */}
-      <Section dark spacing="large">
+      {/* Sustainable Approach Section */}
+      <Section spacing="large">
         <div className="max-w-6xl mx-auto">
           <ImageTextBlock
-            imageSrc="/fat-loss-1.jpg"
-            imageAlt="Training that fits your life"
-            badge="The Reality"
-            title="Training that fits your actual life"
-            imagePosition="right"
-            aspectRatio="4/3"
+            imageSrc="/fat-loss-approach.jpg"
+            imageAlt="Sustainable fat loss approach"
+            badge="Our Approach"
+            title="Sustainable Weight Loss"
+            imagePosition="left"
+            aspectRatio="4/5"
           >
             <p>
-              You don't need to spend hours in the gym or eat chicken and broccoli every meal. Fat loss coaching is about finding what works for your schedule, your preferences, and your reality.
+              No 1,200 calorie diets. No food bans. No spending hours in the gym. Fat loss coaching is about building habits you can maintain while still living your life.
             </p>
             <p>
-              Whether you're a busy parent juggling school runs, a professional with a demanding job, or someone who's tried everything before - the approach adapts to you.
+              Whether you're balancing work, family, or both - the approach adapts to your reality, not the other way around.
             </p>
           </ImageTextBlock>
         </div>
       </Section>
 
-      {/* Apply Now CTA Section */}
-      <Section spacing="large">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-br from-brand-950/30 to-onyx-900 rounded-4xl p-12 md:p-16 border border-brand-500/20">
-            <h2 className="text-3xl md:text-4xl font-light text-white tracking-tight mb-6">
-              Ready to start your fat loss journey?
-            </h2>
-            <p className="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">
-              If you're committed to sustainable change and ready to put in consistent effort, let's talk about how coaching can help you achieve your goals.
+      {/* Process - 3 steps */}
+      <ProcessJourney
+        title="How fat loss coaching works"
+        subtitle="Coaching that adapts to your life, your preferences, and your progress."
+        steps={[
+          {
+            number: "1",
+            title: "Sustainable progress over intensity",
+            description: "Gradual changes at a pace you can maintain, so you actually keep the weight off."
+          },
+          {
+            number: "2",
+            title: "Real-time adaptation",
+            description: "Life happens. Your coaching adapts when work gets busy, stress levels change, or you need to adjust."
+          },
+          {
+            number: "3",
+            title: "Nutrition that fits your life",
+            description: "No food bans or extreme restrictions. Learn to eat in a way that supports your goals while still enjoying life."
+          }
+        ]}
+      />
+
+      {/* Training Approach Section */}
+      <Section dark spacing="large">
+        <div className="max-w-6xl mx-auto">
+          <ImageTextBlock
+            imageSrc="/fat-loss-training.jpg"
+            imageAlt="Fat loss training approach"
+            badge="Training"
+            title="Training That Works For You"
+            imagePosition="left"
+            aspectRatio="4/5"
+          >
+            <p>
+              2-3 structured sessions per week, focused on building strength and movement quality. No endless cardio or grueling workouts that leave you exhausted.
             </p>
-            <button
-              onClick={onApply}
-              className="group inline-flex items-center gap-3 px-10 py-5 bg-white text-onyx-950 font-medium rounded-full hover:bg-gray-100 transition-all duration-300 text-lg"
-            >
-              Apply Now
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
+            <p>
+              Training is programmed around your schedule, experience level, and any injuries or limitations you're working with.
+            </p>
+          </ImageTextBlock>
         </div>
       </Section>
+
+      {/* Realistic Timeline Section */}
+      <Section spacing="large">
+        <div className="max-w-6xl mx-auto">
+          <ImageTextBlock
+            imageSrc="/fat-loss-results.jpg"
+            imageAlt="Fat loss results and timeline"
+            badge="Timeline"
+            title="Realistic Expectations"
+            imagePosition="right"
+            aspectRatio="4/5"
+          >
+            <p>
+              Most clients see meaningful results over 3-6 months of consistent work. This isn't a 12-week transformation - it's sustainable change that actually lasts.
+            </p>
+            <p>
+              You'll learn how to maintain the weight loss long-term, not just achieve it temporarily.
+            </p>
+          </ImageTextBlock>
+        </div>
+      </Section>
+
+      {/* PHASE 3: OVERCOME OBJECTIONS */}
+
+      {/* Philosophy Quote */}
+      <SignaturePhilosophyBlock
+        quote="We work at a pace you can actually maintain."
+      />
+
+      {/* Commitment Contract */}
+      <CommitmentContract
+        heading="What's required"
+        commitments={[
+          {
+            title: "Training & Consistency",
+            description: "2-3 training sessions per week plus daily movement. Sustainable fat loss takes months of consistent work."
+          },
+          {
+            title: "Communication & Honesty",
+            description: "Weekly check-ins where you're responsive and honest about what's happening. Coaching only works if I know what's going on."
+          }
+        ]}
+      />
+
+      {/* PHASE 4: PROOF & CONVERT */}
 
       {/* Proof Section - Single featured testimonial */}
       <Section spacing="large">
@@ -168,6 +190,27 @@ export default function FatLossPage({ onApply }: { onApply: () => void }) {
             >
               View more results <ArrowRight className="w-4 h-4" />
             </Link>
+          </div>
+        </div>
+      </Section>
+
+      {/* Apply Now CTA Section - Final Push */}
+      <Section spacing="large">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="bg-gradient-to-br from-brand-950/30 to-onyx-900 rounded-4xl p-12 md:p-16 border border-brand-500/20">
+            <h2 className="text-3xl md:text-4xl font-light text-white tracking-tight mb-6">
+              Ready to start?
+            </h2>
+            <p className="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">
+              If you're committed to sustainable change and consistent effort, let's talk.
+            </p>
+            <button
+              onClick={onApply}
+              className="group inline-flex items-center gap-3 px-10 py-5 bg-white text-onyx-950 font-medium rounded-full hover:bg-gray-100 transition-all duration-300 text-lg"
+            >
+              Apply Now
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
           </div>
         </div>
       </Section>

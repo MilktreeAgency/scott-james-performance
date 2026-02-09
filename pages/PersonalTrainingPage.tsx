@@ -164,7 +164,7 @@ export default function PersonalTrainingPage({ onApply }: { onApply: () => void 
               <p className="text-6xl font-light text-white tracking-tight">£60<span className="text-xl font-normal text-gray-500">/hour</span></p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 text-left">
+            <div className="grid md:grid-cols-3 gap-6 text-left mb-12">
               {[
                 { title: "Minimum commitment", desc: "At least 1 session per week recommended." },
                 { title: "Ideal frequency", desc: "2-3 sessions per week for most clients." },
@@ -176,6 +176,13 @@ export default function PersonalTrainingPage({ onApply }: { onApply: () => void 
                 </div>
               ))}
             </div>
+
+            <button 
+              onClick={onApply}
+              className="bg-white text-onyx-950 px-10 py-4 text-base font-medium rounded-full hover:bg-gray-100 transition-all duration-300 inline-flex items-center gap-2"
+            >
+              Apply Now <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
       </Section>

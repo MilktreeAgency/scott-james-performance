@@ -12,7 +12,7 @@ import {
   Trophy
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Badge, SectionHeading, GlassCard, TestimonialCarousel } from '../components/shared';
+import { Badge, SectionHeading, GlassCard, TestimonialCarousel, ImageTextBlock, Section } from '../components/shared';
 
 // Hero Section - Light & Elegant, dramatic whitespace
 const Hero = ({ onApply }: { onApply: () => void }) => {
@@ -168,6 +168,31 @@ const WhoIHelp = () => {
   );
 };
 
+// Coaching Philosophy Image Section
+const CoachingPhilosophy = () => {
+  return (
+    <Section spacing="large">
+      <div className="max-w-6xl mx-auto">
+        <ImageTextBlock
+          imageSrc="/homepage-coaching-approach.jpg"
+          imageAlt="Coaching approach and philosophy"
+          badge="The Difference"
+          title="Coaching Built Around You"
+          imagePosition="right"
+          aspectRatio="4/5"
+        >
+          <p>
+            Every client is different. Your schedule, goals, experience level, and constraints are unique - so your coaching should be too.
+          </p>
+          <p>
+            This isn't about following a template. It's about building a programme that actually works for your life, not someone else's.
+          </p>
+        </ImageTextBlock>
+      </div>
+    </Section>
+  );
+};
+
 // Method Section - Reduced to 3 cards, strategic icons
 const BentoMethod = () => {
   return (
@@ -243,7 +268,7 @@ const AboutPreview = () => {
           <div className="relative">
             <div className="aspect-[4/5] rounded-4xl overflow-hidden border border-white/10">
               <img 
-                src="/1abdc8_d253d90d518e4b418b65fb2567ee9267~mv2.avif" 
+                src="/about-homepage.jpg" 
                 alt="Scott James" 
                 className="w-full h-full object-cover"
               />
@@ -275,6 +300,31 @@ const AboutPreview = () => {
         </div>
       </div>
     </section>
+  );
+};
+
+// Training In Practice Image Section
+const TrainingInPractice = () => {
+  return (
+    <Section dark spacing="large">
+      <div className="max-w-6xl mx-auto">
+        <ImageTextBlock
+          imageSrc="/homepage-training.jpg"
+          imageAlt="Training and coaching in practice"
+          badge="In Practice"
+          title="How It Actually Works"
+          imagePosition="left"
+          aspectRatio="4/5"
+        >
+          <p>
+            Sessions are structured but flexible. We focus on what matters - progressive overload, movement quality, and managing fatigue intelligently.
+          </p>
+          <p>
+            Whether it's in-person or online, you get real coaching with adjustments based on how you're responding, not just a workout plan.
+          </p>
+        </ImageTextBlock>
+      </div>
+    </Section>
   );
 };
 
@@ -336,6 +386,31 @@ const SocialProof = () => {
   );
 };
 
+// Long-Term Commitment Image Section
+const LongTermCommitment = () => {
+  return (
+    <Section spacing="large">
+      <div className="max-w-6xl mx-auto">
+        <ImageTextBlock
+          imageSrc="/homepage-commitment.jpg"
+          imageAlt="Long-term coaching commitment and results"
+          badge="Long-Term"
+          title="Results Take Time"
+          imagePosition="right"
+          aspectRatio="4/5"
+        >
+          <p>
+            Real change doesn't happen in 6 weeks. The clients who get the best results are the ones who commit to months and years of consistent work.
+          </p>
+          <p>
+            If you're looking for a quick fix, this isn't it. If you're ready to build something sustainable, let's talk.
+          </p>
+        </ImageTextBlock>
+      </div>
+    </Section>
+  );
+};
+
 
 // Final CTA Section - Maximum restraint, single button
 const FinalCTA = ({ onApply }: { onApply: () => void }) => {
@@ -343,7 +418,7 @@ const FinalCTA = ({ onApply }: { onApply: () => void }) => {
     <section className="py-40 bg-onyx-950">
       <div className="max-w-3xl mx-auto px-6 text-center">
         <h2 className="text-4xl md:text-5xl font-light text-white tracking-tight mb-8">
-          Ready to get started?
+          Coaching That Works for You.
         </h2>
         <p className="text-lg text-gray-400 mb-12 max-w-xl mx-auto">
           If you're serious about making a change and ready to commit to the process, apply for coaching.
@@ -365,10 +440,13 @@ export default function HomePage({ onApply }: { onApply: () => void }) {
   return (
     <>
       <Hero onApply={onApply} />
-      <WhoIHelp />
-      <BentoMethod />
       <AboutPreview />
+      <WhoIHelp />
+      <CoachingPhilosophy />
+      <BentoMethod />
+      <TrainingInPractice />
       <SocialProof />
+      <LongTermCommitment />
       <FinalCTA onApply={onApply} />
     </>
   );

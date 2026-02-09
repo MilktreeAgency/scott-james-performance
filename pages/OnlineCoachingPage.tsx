@@ -123,7 +123,7 @@ export default function OnlineCoachingPage({ onApply }: { onApply: () => void })
             badge="How It Works"
             title="Your coaching, always accessible"
             imagePosition="left"
-            aspectRatio="4/3"
+            aspectRatio="4/5"
           >
             <p>
               Everything delivered through a coaching app - your workouts, progress tracking, and direct messaging. Check in from anywhere, log your training, and get feedback that helps you improve.
