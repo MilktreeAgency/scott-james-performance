@@ -1,23 +1,120 @@
 import React from 'react';
-import { ArrowRight, Flame, Trophy, Heart, TrendingUp } from 'lucide-react';
+import { Quote, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { 
   Section, 
   MonumentalStats,
-  ProofTestimonial,
   SignaturePhilosophyBlock,
-  TestimonialCarousel,
-  FullBleedHero,
-  TransformationCard,
-  TestimonialWithPhoto
+  FullBleedHero
 } from '../components/shared';
+
+// Testimonial data - all 8 clients
+const testimonials = [
+  {
+    id: 'ali',
+    name: 'Ali D.',
+    image: '/images/results/ali-d.jpg',
+    result: '-16kg',
+    duration: 'Ongoing',
+    context: 'Online coaching',
+    shortQuote: 'The biggest game changer was nutrition. He helped me understand calories, energy balance, and the importance of protein.',
+    fullQuote: `I started training with Scott at a point in my life when I needed a reset, and I've never looked back. The biggest game changer was nutrition. He helped me understand calories, energy balance, and the importance of increasing my protein intake, tracking consistently, and being sensible while still enjoying the occasional treat. Cutting back on alcohol also made a huge difference.
+
+When I began, I was 93kg with close to 20% body fat and higher visceral fat levels. Today I'm 77kg (11.97 stone), 16% body fat, lower visceral fat, and higher muscle mass. I feel healthier than I did in my 30s and 40s.
+
+I can now compete with players half my age in tennis and padel, and I noticed a massive difference in my performance when I was still playing football.
+
+Scott, thank you legend!`,
+    stats: {
+      weightLost: '16kg',
+      bodyFat: '16%',
+      highlight: 'Competing with players half his age'
+    }
+  },
+  {
+    id: 'sarah',
+    name: 'Sarah M.',
+    image: '/images/results/sarah-m.jpg',
+    result: '-3 stone',
+    duration: '12 months',
+    context: 'Fat loss coaching',
+    shortQuote: 'The structured approach made all the difference. No more guessing, just follow the plan and trust the process.',
+    fullQuote: 'The structured approach made all the difference. No more guessing, just follow the plan and trust the process. I learned how to eat properly rather than just following rules. A year later, I\'m down 3 stone and I\'ve kept it off because nothing feels extreme or unsustainable.'
+  },
+  {
+    id: 'helen',
+    name: 'Helen R.',
+    image: '/images/results/helen-r.jpg',
+    result: 'First triathlon',
+    duration: '6 months',
+    context: 'Performance coaching',
+    shortQuote: 'At 45, I thought doing a triathlon was unrealistic. Scott helped me build up sensibly, working around old injuries.',
+    fullQuote: 'At 45, I thought doing a triathlon was unrealistic. Scott helped me build up sensibly over 6 months, working around a dodgy knee. The programming was smart and progressive, never pushing too hard but always challenging enough to see progress.'
+  },
+  {
+    id: 'harry',
+    name: 'Harry G.',
+    image: '/images/results/harry-g.jpg',
+    result: '-11kg',
+    duration: 'Online coaching',
+    context: 'Online coaching',
+    shortQuote: 'It has completely changed my life and how I see myself. I now feel confident, fit, and empowered.',
+    fullQuote: 'I worked with Scott on his online coaching plan and it has completely changed my life and how I see myself. He was always there keeping me focused throughout and answered every question I had. I lost 11kg and now feel confident, fit, and empowered. I couldn\'t be happier. Thank you, Scott!'
+  },
+  {
+    id: 'penny',
+    name: 'Penny F.',
+    image: '/images/results/penny-f.jpg',
+    result: '-7kg',
+    duration: 'Online coaching',
+    context: '80/20 method',
+    shortQuote: 'I\'ve learned how to follow a balanced, sustainable approach. I genuinely feel like a brand new woman.',
+    fullQuote: 'Scott\'s online coaching programme completely changed the way I approach food and training. I\'ve learned how to follow a balanced, sustainable approach using the 80/20 method, which has made everything feel realistic and maintainable. I\'ve lost 7kg and genuinely feel like a brand new woman.'
+  },
+  {
+    id: 'phil',
+    name: 'Phil J.',
+    image: '/images/results/phil-j.jpg',
+    result: 'Life changed',
+    duration: 'Years',
+    context: 'Long-term client',
+    shortQuote: 'He\'s genuinely changed my life. The way I train, the way I feel, and how I manage my busy schedule.',
+    fullQuote: 'I\'ve worked with Scott for years and he\'s genuinely changed my life. The way I train, the way I feel, and how I manage my busy schedule have all improved massively. We\'ve built a great friendship beyond training, and I honestly couldn\'t recommend him more.'
+  },
+  {
+    id: 'andrew',
+    name: 'Andrew W.',
+    image: '/images/results/andrew-w.jpg',
+    result: '-14kg',
+    duration: '4 months',
+    context: 'HYROX training',
+    shortQuote: 'In just four months I lost 14kg and finally built a routine that worked around my lifestyle.',
+    fullQuote: 'For years I felt inconsistent and lost with my training. My routine had no structure, I travelled a lot, and my nutrition was all over the place. After reaching out to Scott, everything changed. In just four months I lost 14kg and finally built a routine that worked around my lifestyle. He even encouraged me to sign up for my first HYROX session, which was something I never thought I\'d do. Scott hasn\'t just improved my knowledge of food and training, he\'s given me my life back.'
+  },
+  {
+    id: 'toby',
+    name: 'Toby A.',
+    image: '/images/results/toby-a.jpg',
+    result: 'Full rebuild',
+    duration: 'Rehabilitation',
+    context: 'Injury rehab',
+    shortQuote: 'He helped me overcome old niggles, build solid foundations, and push to levels I didn\'t think I\'d reach again.',
+    fullQuote: 'I can\'t thank Scott enough for everything he\'s done for me. What started as rehabbing my knees and ankles so I could work pain free turned into a complete rebuild of my strength, fitness, and confidence. He helped me overcome old niggles, build solid foundations, and push to levels I didn\'t think I\'d reach again. More than anything, he\'s strengthened my mindset and kept me accountable throughout. I wouldn\'t be where I am today without his support and belief in me.'
+  }
+];
+
+// Featured testimonial (Ali D.)
+const featuredTestimonial = testimonials[0];
+
+// Grid testimonials (remaining 7)
+const gridTestimonials = testimonials.slice(1);
 
 export default function ResultsPage({ onApply }: { onApply: () => void }) {
   return (
     <>
       {/* Hero - Full Bleed */}
       <FullBleedHero
-        imageSrc="/results-hero.jpg"
+        imageSrc="/images/results/hero.jpg"
         imageAlt="Client success stories"
         badge="Client Results"
         title={<>Real people.<br /><span className="text-brand-400">Real progress.</span></>}
@@ -36,157 +133,149 @@ export default function ResultsPage({ onApply }: { onApply: () => void }) {
         ]}
       />
 
-      {/* Transformation Gallery */}
+      {/* Transformation Grid - 7 testimonials */}
       <Section spacing="large">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="mb-12">
-            <p className="text-brand-400 text-sm tracking-widest uppercase mb-6">Transformations</p>
+            <p className="text-brand-400 text-sm tracking-widest uppercase mb-6">Client Stories</p>
             <h2 className="text-3xl md:text-4xl font-light text-white tracking-tight mb-4">
-              Visual proof of progress
+              In their own words
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl">
-              Real transformations from clients who committed to the process.
+              Every client has a unique story. Here's what they have to say about their journey.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <TransformationCard 
-              name="Sarah M."
-              duration="12 months"
-              result="-3 stone"
-              context="Fat loss coaching"
-              afterSrc="/client-1.jpg"
-            />
-            <TransformationCard 
-              name="James T."
-              duration="8 months"
-              result="-2 stone"
-              context="1:1 personal training"
-              afterSrc="/client-2.jpg"
-            />
-            <TransformationCard 
-              name="Helen R."
-              duration="6 months"
-              result="First triathlon"
-              context="Performance coaching"
-              afterSrc="/client-3.jpg"
-            />
-            <TransformationCard 
-              name="David K."
-              duration="24 months"
-              result="Full recovery"
-              context="Stroke rehabilitation"
-              afterSrc="/client-4.jpg"
-            />
-            <TransformationCard 
-              name="Chris P."
-              duration="12 months"
-              result="-8 min PB"
-              context="Hyrox training"
-              afterSrc="/client-5.jpg"
-            />
-            <TransformationCard 
-              name="Michelle P."
-              duration="18 months"
-              result="Pain-free"
-              context="Post-surgery rehab"
-              afterSrc="/client-6.jpg"
-            />
+          {/* Grid layout - responsive with featured cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {gridTestimonials.map((testimonial, index) => {
+              // First two cards get special treatment on larger screens
+              const isHighlighted = index < 2;
+              
+              return (
+                <div 
+                  key={testimonial.id}
+                  className={`group bg-onyx-800 rounded-3xl border border-white/10 overflow-hidden hover:border-white/20 transition-all duration-300 ${
+                    isHighlighted ? 'lg:first:col-span-1' : ''
+                  }`}
+                >
+                  {/* Image */}
+                  <div className="relative aspect-[4/5] overflow-hidden">
+                    <img 
+                      src={testimonial.image} 
+                      alt={testimonial.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-onyx-900 via-onyx-900/20 to-transparent" />
+                    
+                    {/* Result badge */}
+                    <div className="absolute top-4 right-4 bg-onyx-950/80 backdrop-blur-sm rounded-full px-3 py-1.5 border border-white/10">
+                      <span className="text-brand-400 text-sm font-medium">{testimonial.result}</span>
+                    </div>
+
+                    {/* Content overlay at bottom */}
+                    <div className="absolute bottom-0 left-0 right-0 p-5">
+                      <h3 className="text-white font-medium text-lg mb-1">{testimonial.name}</h3>
+                      <p className="text-gray-400 text-sm">{testimonial.context}</p>
+                    </div>
+                  </div>
+
+                  {/* Quote section */}
+                  <div className="p-5 pt-4">
+                    <p className="text-gray-300 text-sm leading-relaxed line-clamp-3">
+                      "{testimonial.shortQuote}"
+                    </p>
+                    <div className="flex items-center gap-2 mt-4 pt-4 border-t border-white/5">
+                      <span className="text-xs text-gray-500">{testimonial.duration}</span>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </Section>
 
-      {/* Featured Transformation - Editorial treatment */}
-      <Section spacing="large">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid lg:grid-cols-5 gap-12 items-start">
-            {/* Main story */}
-            <div className="lg:col-span-3">
-              <p className="text-brand-400 text-sm tracking-widest uppercase mb-8">Featured Story</p>
-              
-              <blockquote className="text-2xl md:text-3xl font-light text-white leading-relaxed mb-8">
-                "I'd tried every diet going - keto, intermittent fasting, slimming clubs. Nothing stuck. The difference with Scott was that we built habits gradually, not all at once."
-              </blockquote>
-              
-              <p className="text-gray-400 leading-relaxed mb-8">
-                I learned how to eat properly rather than just following rules. A year later, I'm down 3 stone and I've kept it off because nothing feels extreme or unsustainable.
-              </p>
-              
-              <div>
-                <p className="text-brand-400 font-medium">Sarah M.</p>
-                <p className="text-gray-500 text-sm">Working mum, started at 40</p>
-              </div>
-            </div>
-
-            {/* Result card */}
-            <div className="lg:col-span-2">
-              <div className="bg-onyx-900 rounded-4xl p-10 border border-white/10 sticky top-32">
-                <div className="text-center mb-8">
-                  <p className="text-6xl font-light text-white tracking-tight mb-2">3st</p>
-                  <p className="text-xs text-gray-500 uppercase tracking-widest">Lost & maintained</p>
-                </div>
-                <div className="space-y-4 pt-8 border-t border-white/5 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-gray-500">Duration</span>
-                    <span className="text-white">12 months</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-500">Coaching type</span>
-                    <span className="text-white">1:1 Training</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-500">Status</span>
-                    <span className="text-brand-400">Weight maintained</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* Testimonial Carousel - Scrolling */}
+      {/* Featured Transformation - Ali D. */}
       <Section dark spacing="large">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-20 px-6">
-            <p className="text-brand-400 text-sm tracking-widest uppercase mb-6">More Stories</p>
-            <h2 className="text-2xl md:text-3xl font-light text-white tracking-tight">From fat loss to performance to rehabilitation</h2>
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-12">
+            <p className="text-brand-400 text-sm tracking-widest uppercase mb-6">Featured Transformation</p>
+            <h2 className="text-3xl md:text-4xl font-light text-white tracking-tight mb-4">
+              A complete lifestyle change
+            </h2>
           </div>
-          
-          <TestimonialCarousel 
-            testimonials={[
-              {
-                quote: "As a dad with two young kids and a demanding job in the City, I didn't think I had time. Scott showed me how to make it work with the time I actually have.",
-                name: "James T.",
-                context: "Finance director, 2 stone lost"
-              },
-              {
-                quote: "I'd done a couple of Hyrox events before working with Scott but my times had plateaued. The structured programming made all the difference - dropped 8 minutes off my time.",
-                name: "Chris P.",
-                context: "Hyrox competitor"
-              },
-              {
-                quote: "At 45, I thought doing a triathlon was unrealistic. Scott helped me build up sensibly over 6 months, working around a dodgy knee.",
-                name: "Helen R.",
-                context: "First triathlon at 45"
-              },
-              {
-                quote: "After my stroke, I didn't know if I'd ever train properly again. Two years later, I'm lifting more than I was before the stroke.",
-                name: "David K.",
-                context: "Stroke recovery"
-              },
-              {
-                quote: "I'd had three back surgeries and was terrified of making things worse. I'm now pain-free and training things I thought I'd never do again.",
-                name: "Michelle P.",
-                context: "Post-surgery rehabilitation"
-              },
-              {
-                quote: "I've been training with Scott for over 4 years now. What I appreciate is that it never gets stale - the programming evolves, we set new goals, and there's always something to work towards.",
-                name: "Michael T.",
-                context: "4+ years training"
-              }
-            ]}
-          />
+
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+            {/* Image */}
+            <div className="relative">
+              <div className="aspect-[4/5] rounded-3xl overflow-hidden border border-white/10">
+                <img 
+                  src={featuredTestimonial.image} 
+                  alt={featuredTestimonial.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Floating stats card */}
+              <div className="absolute -bottom-6 -right-6 bg-onyx-800 rounded-2xl p-6 border border-white/10 shadow-2xl hidden md:block">
+                <div className="text-center">
+                  <p className="text-4xl font-light text-white tracking-tight mb-1">{featuredTestimonial.stats?.weightLost}</p>
+                  <p className="text-xs text-gray-500 uppercase tracking-widest">Lost</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="flex flex-col justify-center">
+              <div className="relative mb-8">
+                <Quote className="absolute -top-4 -left-4 w-12 h-12 text-brand-500/20" />
+                <blockquote className="text-xl md:text-2xl font-light text-white leading-relaxed pl-6">
+                  "{featuredTestimonial.fullQuote?.split('\n\n')[0]}"
+                </blockquote>
+              </div>
+
+              <div className="space-y-4 text-gray-400 leading-relaxed mb-8">
+                {featuredTestimonial.fullQuote?.split('\n\n').slice(1).map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-6 pt-6 border-t border-white/10">
+                <div>
+                  <p className="text-brand-400 font-medium text-lg">{featuredTestimonial.name}</p>
+                  <p className="text-gray-500 text-sm">{featuredTestimonial.context}</p>
+                </div>
+                <div className="flex gap-6 ml-auto">
+                  <div className="text-center">
+                    <p className="text-2xl font-light text-white">93kg</p>
+                    <p className="text-xs text-gray-500">Start</p>
+                  </div>
+                  <div className="w-px bg-white/10" />
+                  <div className="text-center">
+                    <p className="text-2xl font-light text-brand-400">77kg</p>
+                    <p className="text-xs text-gray-500">Now</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mobile stats */}
+              <div className="grid grid-cols-3 gap-4 mt-8 md:hidden">
+                <div className="bg-onyx-800 rounded-xl p-4 text-center border border-white/10">
+                  <p className="text-xl font-light text-white">{featuredTestimonial.stats?.weightLost}</p>
+                  <p className="text-xs text-gray-500">Lost</p>
+                </div>
+                <div className="bg-onyx-800 rounded-xl p-4 text-center border border-white/10">
+                  <p className="text-xl font-light text-white">{featuredTestimonial.stats?.bodyFat}</p>
+                  <p className="text-xs text-gray-500">Body Fat</p>
+                </div>
+                <div className="bg-onyx-800 rounded-xl p-4 text-center border border-white/10">
+                  <p className="text-xl font-light text-white">20%</p>
+                  <p className="text-xs text-gray-500">Before</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </Section>
 
@@ -197,77 +286,32 @@ export default function ResultsPage({ onApply }: { onApply: () => void }) {
         context="On long-term coaching relationships"
       />
 
-      {/* Long-term client highlight */}
+      {/* CTA Section */}
       <Section spacing="large">
-        <div className="max-w-3xl mx-auto">
-          <div className="mb-12">
-            <p className="text-brand-400 text-sm tracking-widest uppercase mb-6">Long-Term Client</p>
-            <h2 className="text-2xl md:text-3xl font-light text-white tracking-tight">Years of consistent progress</h2>
-          </div>
-
-          <div className="bg-onyx-900 rounded-4xl p-10 border border-white/10 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-500/5 rounded-full blur-3xl" />
-            <div className="relative">
-              <blockquote className="text-xl md:text-2xl font-light text-white leading-relaxed mb-8">
-                "I've been training with Scott for over 4 years now. What I appreciate is that it never gets stale - the programming evolves, we set new goals, and there's always something to work towards. I'm 52 and in the best shape of my life."
-              </blockquote>
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-brand-400 font-medium">Michael T.</p>
-                  <p className="text-gray-500 text-sm">Managing director</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-3xl font-light text-white">4+ years</p>
-                  <p className="text-xs text-gray-500 uppercase tracking-widest">Training together</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* Testimonials with Photos */}
-      <Section dark spacing="large">
-        <div className="max-w-5xl mx-auto">
-          <div className="mb-12">
-            <p className="text-brand-400 text-sm tracking-widest uppercase mb-6">Client Stories</p>
-            <h2 className="text-3xl md:text-4xl font-light text-white tracking-tight">
-              In their own words
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <TestimonialWithPhoto
-              quote="The structured approach made all the difference. No more guessing, just follow the plan and trust the process."
-              name="Sarah M."
-              context="Fat loss client"
-              photoSrc="/client-1.jpg"
-              photoAlt="Sarah M."
-              metric={{ value: "3st", label: "Lost" }}
-            />
-            <TestimonialWithPhoto
-              quote="I'd tried everything before - this is the first time something has actually stuck long-term."
-              name="James T."
-              context="Finance director"
-              photoSrc="/client-2.jpg"
-              photoAlt="James T."
-              metric={{ value: "2st", label: "Lost" }}
-            />
-            <TestimonialWithPhoto
-              quote="Training around my injury felt impossible until Scott showed me how to do it safely."
-              name="Michelle P."
-              context="Post-surgery rehabilitation"
-              photoSrc="/client-6.jpg"
-              photoAlt="Michelle P."
-            />
-            <TestimonialWithPhoto
-              quote="The Hyrox-specific programming took my times to a completely different level."
-              name="Chris P."
-              context="Hyrox competitor"
-              photoSrc="/client-5.jpg"
-              photoAlt="Chris P."
-              metric={{ value: "-8min", label: "PB" }}
-            />
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-brand-400 text-sm tracking-widest uppercase mb-6">Ready to start?</p>
+          <h2 className="text-3xl md:text-5xl font-light text-white tracking-tight mb-6">
+            Your transformation begins here
+          </h2>
+          <p className="text-gray-400 text-lg leading-relaxed mb-12 max-w-2xl mx-auto">
+            Whether you prefer in-person training or the flexibility of online coaching, there's a programme designed to fit your lifestyle and goals.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              to="/personal-training"
+              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-onyx-950 font-medium rounded-full hover:bg-gray-100 transition-all duration-300"
+            >
+              Personal Training
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link 
+              to="/online-coaching"
+              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/5 border border-white/10 text-white font-medium rounded-full hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+            >
+              Online Coaching
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
         </div>
       </Section>

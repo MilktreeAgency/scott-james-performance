@@ -17,7 +17,7 @@ export default function PerformancePage({ onApply }: { onApply: () => void }) {
     <>
       {/* Hero - Full Bleed with athletic action imagery */}
       <FullBleedHero
-        imageSrc="/perfomance-coaching-hero.jpg"
+        imageSrc="/images/performance/hero.jpg"
         imageAlt="Performance coaching"
         badge="Performance Coaching"
         title={<>Performance coaching<br /><span className="text-brand-400">for serious athletes</span></>}
@@ -61,7 +61,7 @@ export default function PerformancePage({ onApply }: { onApply: () => void }) {
       <Section spacing="large">
         <div className="max-w-6xl mx-auto">
           <ImageTextBlock
-            imageSrc="/performance-who.jpg"
+            imageSrc="/images/performance/who-its-for.jpg"
             imageAlt="Hybrid endurance athlete training"
             badge="Who We Coach"
             title="Hybrid Endurance Athletes"
@@ -82,7 +82,7 @@ export default function PerformancePage({ onApply }: { onApply: () => void }) {
       <Section dark spacing="large">
         <div className="max-w-6xl mx-auto">
           <ImageTextBlock
-            imageSrc="/performance-our-approach.jpg"
+            imageSrc="/images/performance/training-approach.jpg"
             imageAlt="Structured training programming"
             badge="Our Approach"
             title="Built Around Your Calendar"
@@ -193,7 +193,7 @@ export default function PerformancePage({ onApply }: { onApply: () => void }) {
       <Section spacing="large">
         <div className="max-w-6xl mx-auto">
           <ImageTextBlock
-            imageSrc="/performance-1.jpg"
+            imageSrc="/images/performance/hero.jpg"
             imageAlt="Race day preparation and strategy"
             badge="Peak Performance"
             title="From Training to Race Day"

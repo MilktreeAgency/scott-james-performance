@@ -16,7 +16,7 @@ export default function AboutPage({ onApply }: { onApply: () => void }) {
     <>
       {/* Hero - Full Bleed */}
       <FullBleedHero
-        imageSrc="/1abdc8_d253d90d518e4b418b65fb2567ee9267~mv2.avif"
+        imageSrc="/images/about/hero.jpg"
         imageAlt="Scott James coaching"
         badge="About Scott"
         title={<>The coach behind<br /><span className="text-brand-400">Scott James Performance</span></>}
@@ -32,7 +32,7 @@ export default function AboutPage({ onApply }: { onApply: () => void }) {
           <div className="lg:col-span-2 relative">
             <div className="aspect-[4/5] rounded-4xl overflow-hidden border border-white/10 sticky top-32">
               <img 
-                src="/about-1.jpg" 
+                src="/images/about/scott-portrait.jpg" 
                 alt="Scott James" 
                 className="w-full h-full object-cover"
               />
@@ -123,7 +123,7 @@ export default function AboutPage({ onApply }: { onApply: () => void }) {
         badgeClassName="bg-brand-900/30 text-brand-400 border border-brand-500/20"
         title="From Obese to Elite Athlete."
         leadParagraph="I wasn't always a personal trainer. Before I got into fitness, I was significantly overweight - over 10 stone heavier than I am now. I know what it's like to feel uncomfortable in your own body."
-        sidebarImage={{ src: '', alt: 'Scott James transformation story' }}
+        sidebarImage={{ src: '/images/about/scott-transformation.jpg', alt: 'Scott James transformation story' }}
         bodyParagraphs={[
           "When I finally made the change, it wasn't through some miracle programme. It was through learning how to eat properly, how to train consistently, and how to build habits that actually stick.",
           "That experience shaped everything about how I coach now. I don't believe in crash diets or unsustainable training schedules. I focus on building something that lasts.",
@@ -239,12 +239,12 @@ export default function AboutPage({ onApply }: { onApply: () => void }) {
           <PhotoGallery 
             columns={3}
             images={[
-              { src: "/6.jpg", alt: "Scott training a client", category: "Training" },
-              { src: "/9.jpg", alt: "Competition prep session", category: "Performance" },
-              { src: "/10.jpg", alt: "Scott at a Hyrox event", category: "Competition" },
-              { src: "/12.jpg", alt: "1:1 coaching session", category: "Personal Training" },
-              { src: "/13.jpg", alt: "Group training outdoors", category: "Training" },
-              { src: "/14.jpg", alt: "Scott's personal journey", category: "Lifestyle" }
+              { src: "/images/about/gallery-training-client.jpg", alt: "Scott training a client", category: "Training", aspectRatio: "3/4" },
+              { src: "/images/about/gallery-competition-prep.png", alt: "Competition prep session", category: "Performance", aspectRatio: "3/4" },
+              { src: "/images/about/gallery-hyrox-event.jpg", alt: "Scott at a Hyrox event", category: "Competition", aspectRatio: "3/4" },
+              { src: "/images/about/gallery-coaching-session.jpg", alt: "1:1 coaching session", category: "Personal Training", aspectRatio: "3/4" },
+              { src: "/images/about/gallery-outdoor-training.jpg", alt: "Group training outdoors", category: "Training", aspectRatio: "3/4" },
+              { src: "/images/about/gallery-lifestyle.jpg", alt: "Scott's personal journey", category: "Lifestyle", aspectRatio: "3/4" }
             ]}
           />
         </div>

@@ -23,7 +23,7 @@ const Hero = ({ onApply }: { onApply: () => void }) => {
          <div className="absolute inset-0 bg-gradient-to-b from-onyx-950/30 via-onyx-950/90 to-onyx-950 z-10" />
          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-brand-950/20 via-transparent to-transparent z-10" />
          <img 
-          src="/homepage-hero.jpg" 
+          src="/images/home/hero-background.jpg" 
           alt="Scott James Training"
           className="w-full h-full object-cover opacity-30"
         />
@@ -39,9 +39,9 @@ const Hero = ({ onApply }: { onApply: () => void }) => {
           
           {/* Light weight headline - Responsive sizing */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-light text-white tracking-tight leading-[1] mb-10">
-            Coaching that <br />
+            Coaching That <br />
             <span className="text-brand-400">
-              lasts.
+              Works for You.
             </span>
           </h1>
           
@@ -174,7 +174,7 @@ const CoachingPhilosophy = () => {
     <Section spacing="large">
       <div className="max-w-6xl mx-auto">
         <ImageTextBlock
-          imageSrc="/homepage-coaching-approach.jpg"
+          imageSrc="/images/home/coaching-approach.jpg"
           imageAlt="Coaching approach and philosophy"
           badge="The Difference"
           title="Coaching Built Around You"
@@ -268,7 +268,7 @@ const AboutPreview = () => {
           <div className="relative">
             <div className="aspect-[4/5] rounded-4xl overflow-hidden border border-white/10">
               <img 
-                src="/about-homepage.jpg" 
+                src="/images/home/scott-portrait.jpg" 
                 alt="Scott James" 
                 className="w-full h-full object-cover"
               />
@@ -309,7 +309,7 @@ const TrainingInPractice = () => {
     <Section dark spacing="large">
       <div className="max-w-6xl mx-auto">
         <ImageTextBlock
-          imageSrc="/homepage-training.jpg"
+          imageSrc="/images/home/training-in-practice.jpg"
           imageAlt="Training and coaching in practice"
           badge="In Practice"
           title="How It Actually Works"
@@ -392,7 +392,7 @@ const LongTermCommitment = () => {
     <Section spacing="large">
       <div className="max-w-6xl mx-auto">
         <ImageTextBlock
-          imageSrc="/homepage-commitment.jpg"
+          imageSrc="/images/home/long-term-coaching.jpg"
           imageAlt="Long-term coaching commitment and results"
           badge="Long-Term"
           title="Results Take Time"

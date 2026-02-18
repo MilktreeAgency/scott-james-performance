@@ -21,13 +21,14 @@ export default function FatLossPage({ onApply }: { onApply: () => void }) {
       
       {/* Hero - Full Bleed with action imagery */}
       <FullBleedHero
-        imageSrc="/fat-loss-training-hero.jpg"
+        imageSrc="/images/fat-loss/fat-loss-hero.jpg"
         imageAlt="Fat loss lifestyle training"
         badge="Fat Loss Coaching"
         title={<>Sustainable fat loss<br /><span className="text-brand-400">for busy adults</span></>}
         subtitle="No crash diets. No extreme programmes. Just structured coaching that helps you lose weight and keep it off - while still living your life."
         height="tall"
         overlayIntensity="heavy"
+        imagePosition="top"
       />
 
       {/* Binary Filter */}
@@ -60,7 +61,7 @@ export default function FatLossPage({ onApply }: { onApply: () => void }) {
       <Section spacing="large">
         <div className="max-w-6xl mx-auto">
           <ImageTextBlock
-            imageSrc="/fat-loss-approach.jpg"
+            imageSrc="/images/fat-loss/hero.jpg"
             imageAlt="Sustainable fat loss approach"
             badge="Our Approach"
             title="Sustainable Weight Loss"
@@ -104,7 +105,7 @@ export default function FatLossPage({ onApply }: { onApply: () => void }) {
       <Section dark spacing="large">
         <div className="max-w-6xl mx-auto">
           <ImageTextBlock
-            imageSrc="/fat-loss-training.jpg"
+            imageSrc="/images/fat-loss/training-approach.jpg"
             imageAlt="Fat loss training approach"
             badge="Training"
             title="Training That Works For You"
@@ -125,7 +126,7 @@ export default function FatLossPage({ onApply }: { onApply: () => void }) {
       <Section spacing="large">
         <div className="max-w-6xl mx-auto">
           <ImageTextBlock
-            imageSrc="/fat-loss-results.jpg"
+            imageSrc="/images/fat-loss/timeline-results.jpg"
             imageAlt="Fat loss results and timeline"
             badge="Timeline"
             title="Realistic Expectations"

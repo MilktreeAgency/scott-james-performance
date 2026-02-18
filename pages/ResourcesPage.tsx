@@ -1,19 +1,19 @@
 import React from 'react';
 import { ArrowRight, Download, Mail, CheckCircle2, Clock, Tag, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Section, FullBleedHero, ImagePlaceholder } from '../components/shared';
+import { Section, FullBleedHero } from '../components/shared';
 
 // Article data structure
 export const articles = [
   {
-    slug: 'complete-guide-sustainable-fat-loss',
-    title: 'The Complete Guide to Sustainable Fat Loss',
-    excerpt: 'Learn the fundamentals of creating a calorie deficit that works long-term. No crash diets, no extreme restrictions - just sustainable strategies that busy adults can actually follow.',
-    category: 'Fat Loss',
-    categorySlug: 'fat-loss',
-    readingTime: '12 min read',
+    slug: 'recovery-adaptation-training-harder-smarter',
+    title: 'Recovery and Adaptation: Why Training Harder Isn\'t Always Better',
+    excerpt: 'Understanding the science of recovery and adaptation is the key to consistent progress. Learn how to recognize when to push, when to back off, and how to structure training that actually builds on itself instead of burying you.',
+    category: 'Performance',
+    categorySlug: 'performance',
+    readingTime: '11 min read',
     featured: true,
-    date: '2026-01-15'
+    date: '2026-02-12'
   },
   {
     slug: 'track-macros-without-losing-mind',
@@ -70,52 +70,62 @@ export const articles = [
 // Category filter options
 const categories = [
   { slug: 'all', label: 'All Articles' },
+  { slug: 'performance', label: 'Performance' },
   { slug: 'fat-loss', label: 'Fat Loss' },
   { slug: 'hyrox', label: 'Hyrox' },
   { slug: 'beginners', label: 'Beginners' }
 ];
 
 // Article Card Component
-const ArticleCard = ({ article, featured = false }: { article: typeof articles[0], featured?: boolean }) => (
-  <Link 
-    to={`/resources/${article.slug}`}
-    className={`group block bg-onyx-900 rounded-3xl border border-white/10 overflow-hidden hover:border-white/20 transition-all duration-300 ${featured ? 'md:col-span-2' : ''}`}
-  >
-    {/* Image placeholder */}
-    <div className={`relative ${featured ? 'aspect-[21/9]' : 'aspect-[16/9]'}`}>
-      <ImagePlaceholder 
-        alt={article.title}
-        category={article.category}
-        aspectRatio={featured ? '21/9' : '16/9'}
-        rounded="none"
-        className="rounded-none"
-      />
-      {/* Category badge */}
-      <div className="absolute top-4 left-4">
-        <span className="px-3 py-1.5 bg-onyx-950/80 backdrop-blur-sm rounded-full text-[10px] font-medium text-brand-400 uppercase tracking-widest border border-white/10">
-          {article.category}
-        </span>
+const ArticleCard = ({ article }: { article: typeof articles[0] }) => {
+  // Custom positioning for different articles
+  let imagePosition = 'object-top'; // default
+  
+  if (article.categorySlug === 'hyrox') {
+    imagePosition = 'object-center';
+  } else if (article.slug === 'track-macros-without-losing-mind') {
+    imagePosition = 'object-center';
+  }
+  
+  return (
+    <Link 
+      to={`/resources/${article.slug}`}
+      className="group block bg-onyx-900 rounded-3xl border border-white/10 overflow-hidden hover:border-white/20 transition-all duration-300"
+    >
+      {/* Featured Image */}
+      <div className="relative aspect-[16/9]">
+        <img 
+          src={`/images/resources/articles/${article.slug}.jpg`}
+          alt={article.title}
+          className={`w-full h-full object-cover ${imagePosition}`}
+        />
+        {/* Category badge */}
+        <div className="absolute top-4 left-4">
+          <span className="px-3 py-1.5 bg-onyx-950/80 backdrop-blur-sm rounded-full text-[10px] font-medium text-brand-400 uppercase tracking-widest border border-white/10">
+            {article.category}
+          </span>
+        </div>
       </div>
-    </div>
-    
-    {/* Content */}
-    <div className={`p-6 ${featured ? 'md:p-8' : ''}`}>
-      <h3 className={`font-light text-white mb-3 group-hover:text-brand-400 transition-colors ${featured ? 'text-2xl md:text-3xl' : 'text-xl'}`}>
-        {article.title}
-      </h3>
-      <p className={`text-gray-400 leading-relaxed mb-4 ${featured ? 'text-base' : 'text-sm'}`}>
-        {article.excerpt}
-      </p>
-      <div className="flex items-center gap-4 text-xs text-gray-500">
-        <span className="flex items-center gap-1.5">
-          <Clock className="w-3.5 h-3.5" />
-          {article.readingTime}
-        </span>
-        <span>{new Date(article.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+      
+      {/* Content */}
+      <div className="p-6">
+        <h3 className="font-light text-white mb-3 group-hover:text-brand-400 transition-colors text-xl">
+          {article.title}
+        </h3>
+        <p className="text-gray-400 leading-relaxed mb-4 text-sm">
+          {article.excerpt}
+        </p>
+        <div className="flex items-center gap-4 text-xs text-gray-500">
+          <span className="flex items-center gap-1.5">
+            <Clock className="w-3.5 h-3.5" />
+            {article.readingTime}
+          </span>
+          <span>{new Date(article.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+        </div>
       </div>
-    </div>
-  </Link>
-);
+    </Link>
+  );
+};
 
 export default function ResourcesPage({ onApply }: { onApply: () => void }) {
   const [email, setEmail] = React.useState('');
@@ -140,13 +150,14 @@ export default function ResourcesPage({ onApply }: { onApply: () => void }) {
     <>
       {/* Hero - Full Bleed */}
       <FullBleedHero
-        imageSrc="/resources-hero.jpg"
+        imageSrc="/images/resources/hero-bg.jpg"
         imageAlt="Resources and guides"
         badge="Resources & Guides"
         title={<>Practical content<br /><span className="text-brand-400">that actually helps</span></>}
         subtitle="In-depth guides on fat loss, Hyrox training, and building sustainable fitness habits. No fluff, no sales pitches - just useful information based on what actually works."
         height="medium"
         overlayIntensity="heavy"
+        imagePosition="center 20%"
       />
 
       {/* Category Filter */}
@@ -170,11 +181,10 @@ export default function ResourcesPage({ onApply }: { onApply: () => void }) {
 
           {/* Articles Grid */}
           <div className="grid md:grid-cols-2 gap-6">
-            {filteredArticles.map((article, index) => (
+            {filteredArticles.map((article) => (
               <ArticleCard 
                 key={article.slug} 
-                article={article} 
-                featured={index === 0 && activeCategory === 'all'}
+                article={article}
               />
             ))}
           </div>
@@ -222,7 +232,7 @@ export default function ResourcesPage({ onApply }: { onApply: () => void }) {
             {/* Download form */}
             <div className="bg-onyx-950 rounded-3xl p-8 border border-white/10">
               <img 
-                src="/fat-loss-guide-cover.jpg"
+                src="/images/resources/fat-loss-guide-cover.jpg"
                 alt="Fat Loss Guide cover"
                 className="w-full aspect-[16/9] object-cover rounded-2xl mb-6"
               />

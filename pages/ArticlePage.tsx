@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowLeft, ArrowRight, Clock, Calendar, Tag, Share2, CheckCircle2 } from 'lucide-react';
 import { Link, useParams, Navigate } from 'react-router-dom';
-import { Section, ImagePlaceholder, FullBleedHero } from '../components/shared';
+import { Section, FullBleedHero } from '../components/shared';
 import { articles } from './ResourcesPage';
 
 // Article content data - SEO-focused placeholder content
@@ -316,10 +316,15 @@ export default function ArticlePage({ onApply }: { onApply: () => void }) {
       {/* Featured Image */}
       <Section spacing="normal">
         <div className="max-w-4xl mx-auto">
-          <ImagePlaceholder 
+          <img 
+            src={`/images/resources/articles/${article.slug}.jpg`}
             alt={article.title}
-            category={article.category}
-            aspectRatio="21/9"
+            className={`w-full rounded-3xl object-cover ${
+              article.categorySlug === 'hyrox' || article.slug === 'track-macros-without-losing-mind' 
+                ? 'object-center' 
+                : 'object-top'
+            }`}
+            style={{ aspectRatio: '21/9' }}
           />
         </div>
       </Section>
@@ -388,13 +393,17 @@ export default function ArticlePage({ onApply }: { onApply: () => void }) {
                   to={`/resources/${related.slug}`}
                   className="group block bg-onyx-950 rounded-2xl border border-white/10 overflow-hidden hover:border-white/20 transition-all duration-300"
                 >
-                  <ImagePlaceholder 
-                    alt={related.title}
-                    category={related.category}
-                    aspectRatio="16/9"
-                    rounded="none"
-                    className="rounded-none"
-                  />
+                  <div className="relative aspect-[16/9]">
+                    <img 
+                      src={`/images/resources/articles/${related.slug}.jpg`}
+                      alt={related.title}
+                      className={`w-full h-full object-cover ${
+                        related.categorySlug === 'hyrox' || related.slug === 'track-macros-without-losing-mind'
+                          ? 'object-center' 
+                          : 'object-top'
+                      }`}
+                    />
+                  </div>
                   <div className="p-6">
                     <h3 className="text-lg font-light text-white group-hover:text-brand-400 transition-colors mb-2">
                       {related.title}

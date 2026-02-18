@@ -33,13 +33,14 @@ export default function OnlineCoachingPage({ onApply }: { onApply: () => void })
     <>
       {/* Hero - Full Bleed */}
       <FullBleedHero
-        imageSrc="/online-training-hero.jpg"
+        imageSrc="/images/online-coaching/hero.jpg"
         imageAlt="Online coaching and remote training"
         badge="Online Coaching"
         title={<>Expert coaching,<br /><span className="text-brand-400">wherever you are</span></>}
         subtitle="Full coaching support without the geographical limits. Personalised programming, nutrition guidance, and accountability - delivered remotely."
         height="tall"
         overlayIntensity="heavy"
+        imagePosition="top"
       />
 
       {/* Philosophy Quote */}
@@ -118,7 +119,7 @@ export default function OnlineCoachingPage({ onApply }: { onApply: () => void })
       <Section spacing="large">
         <div className="max-w-6xl mx-auto">
           <ImageTextBlock
-            imageSrc="/online-coaching-1.jpg"
+            imageSrc="/images/online-coaching/coaching-app.jpg"
             imageAlt="Coaching app and technology"
             badge="How It Works"
             title="Your coaching, always accessible"

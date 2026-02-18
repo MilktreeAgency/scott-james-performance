@@ -15,13 +15,14 @@ export default function PersonalTrainingPage({ onApply }: { onApply: () => void 
     <>
       {/* Hero - Full Bleed with training imagery */}
       <FullBleedHero
-        imageSrc="/personal-training-hero.jpg"
+        imageSrc="/images/personal-training/hero.jpg"
         imageAlt="Personal training session"
         badge="1:1 Personal Training"
         title={<>Personal training in<br /><span className="text-brand-400">Hampshire & West Sussex</span></>}
         subtitle="Hands-on coaching with real-time adaptation, injury-aware programming, and the attention to detail that only comes from working together in person."
         height="tall"
         overlayIntensity="heavy"
+        imagePosition="top"
       />
 
       {/* Differentiator - Simplified to 2 key elements */}
@@ -197,42 +198,26 @@ export default function PersonalTrainingPage({ onApply }: { onApply: () => void 
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-4">
-            <div className="md:col-span-2 md:row-span-2 rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-300" style={{ aspectRatio: '3/4' }}>
-              <img 
-                src="/personal-training-1.jpg"
-                alt="Strength training session"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-300" style={{ aspectRatio: '1/1' }}>
-              <img 
-                src="/personal-training-2.jpg"
-                alt="Form correction"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-300" style={{ aspectRatio: '1/1' }}>
-              <img 
-                src="/personal-training-3.jpg"
-                alt="Movement assessment"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-300" style={{ aspectRatio: '1/1' }}>
-              <img 
-                src="/1.jpg"
-                alt="Functional training"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-300" style={{ aspectRatio: '1/1' }}>
-              <img 
-                src="/2.jpg"
-                alt="Client progress"
-                className="w-full h-full object-cover"
-              />
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {[
+              { src: "/images/personal-training/gallery-strength.jpg", alt: "Strength training session" },
+              { src: "/images/personal-training/hero.jpg", alt: "Form correction" },
+              { src: "/images/personal-training/gallery-movement.jpg", alt: "Movement assessment" },
+              { src: "/images/personal-training/gallery-functional.jpg", alt: "Functional training" },
+              { src: "/images/personal-training/gallery-progress.jpg", alt: "Client progress" }
+            ].map((img, index) => (
+              <div 
+                key={index}
+                className="rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-300"
+                style={{ aspectRatio: '3/4' }}
+              >
+                <img 
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </Section>

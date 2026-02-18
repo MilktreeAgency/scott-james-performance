@@ -103,6 +103,7 @@ interface FullBleedHeroProps {
   children?: React.ReactNode;
   height?: 'medium' | 'tall' | 'full';
   overlayIntensity?: 'light' | 'medium' | 'heavy';
+  imagePosition?: 'center' | 'top' | 'bottom' | string;
 }
 
 export const FullBleedHero = ({ 
@@ -113,7 +114,8 @@ export const FullBleedHero = ({
   subtitle, 
   children,
   height = 'tall',
-  overlayIntensity = 'medium'
+  overlayIntensity = 'medium',
+  imagePosition = 'center'
 }: FullBleedHeroProps) => {
   const heightClasses = {
     medium: 'min-h-[60vh]',
@@ -136,6 +138,12 @@ export const FullBleedHero = ({
             src={imageSrc} 
             alt={imageAlt}
             className="w-full h-full object-cover"
+            style={{ 
+              objectPosition: imagePosition === 'top' ? 'center top' : 
+                            imagePosition === 'bottom' ? 'center bottom' : 
+                            imagePosition === 'center' ? 'center' : 
+                            imagePosition 
+            }}
           />
         ) : (
           <>
