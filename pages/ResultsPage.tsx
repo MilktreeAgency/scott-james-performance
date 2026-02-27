@@ -32,9 +32,9 @@ Scott, thank you legend!`,
     }
   },
   {
-    id: 'sarah',
-    name: 'Sarah M.',
-    image: '/images/results/sarah-m.jpg',
+    id: 'laurie',
+    name: 'Laurie W.',
+    image: '/images/results/laurie-w.jpg',
     result: '-3 stone',
     duration: '12 months',
     context: 'Fat loss coaching',
@@ -50,16 +50,6 @@ Scott, thank you legend!`,
     context: 'Performance coaching',
     shortQuote: 'At 45, I thought doing a triathlon was unrealistic. Scott helped me build up sensibly, working around old injuries.',
     fullQuote: 'At 45, I thought doing a triathlon was unrealistic. Scott helped me build up sensibly over 6 months, working around a dodgy knee. The programming was smart and progressive, never pushing too hard but always challenging enough to see progress.'
-  },
-  {
-    id: 'harry',
-    name: 'Harry G.',
-    image: '/images/results/harry-g.jpg',
-    result: '-11kg',
-    duration: 'Online coaching',
-    context: 'Online coaching',
-    shortQuote: 'It has completely changed my life and how I see myself. I now feel confident, fit, and empowered.',
-    fullQuote: 'I worked with Scott on his online coaching plan and it has completely changed my life and how I see myself. He was always there keeping me focused throughout and answered every question I had. I lost 11kg and now feel confident, fit, and empowered. I couldn\'t be happier. Thank you, Scott!'
   },
   {
     id: 'penny',

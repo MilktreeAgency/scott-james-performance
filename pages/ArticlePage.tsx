@@ -317,10 +317,10 @@ export default function ArticlePage({ onApply }: { onApply: () => void }) {
       <Section spacing="normal">
         <div className="max-w-4xl mx-auto">
           <img 
-            src={`/images/resources/articles/${article.slug}.jpg`}
+            src={(article as any).image || `/images/resources/articles/${article.slug}.jpg`}
             alt={article.title}
             className={`w-full rounded-3xl object-cover ${
-              article.categorySlug === 'hyrox' || article.slug === 'track-macros-without-losing-mind' 
+              article.categorySlug === 'hyrox' 
                 ? 'object-center' 
                 : 'object-top'
             }`}
@@ -395,10 +395,10 @@ export default function ArticlePage({ onApply }: { onApply: () => void }) {
                 >
                   <div className="relative aspect-[16/9]">
                     <img 
-                      src={`/images/resources/articles/${related.slug}.jpg`}
+                      src={(related as any).image || `/images/resources/articles/${related.slug}.jpg`}
                       alt={related.title}
                       className={`w-full h-full object-cover ${
-                        related.categorySlug === 'hyrox' || related.slug === 'track-macros-without-losing-mind'
+                        related.categorySlug === 'hyrox'
                           ? 'object-center' 
                           : 'object-top'
                       }`}

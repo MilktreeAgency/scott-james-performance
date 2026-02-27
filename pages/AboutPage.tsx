@@ -5,7 +5,6 @@ import {
   Section, 
   SignaturePhilosophyBlock,
   QuietCredibility,
-  EditorialStory,
   FullBleedHero,
   PhotoGallery,
   ImagePlaceholder
@@ -23,6 +22,7 @@ export default function AboutPage({ onApply }: { onApply: () => void }) {
         subtitle="Personal trainer, online coach, and someone who genuinely understands what it takes to change."
         height="tall"
         overlayIntensity="heavy"
+        imagePosition="center 35%"
       />
 
       {/* Opening - Split Narrative with Photo */}
@@ -118,19 +118,32 @@ export default function AboutPage({ onApply }: { onApply: () => void }) {
       </Section>
 
       {/* Signature Story Block - The 10-Stone Journey */}
-      <EditorialStory
-        badge="My Story"
-        badgeClassName="bg-brand-900/30 text-brand-400 border border-brand-500/20"
-        title="From Obese to Elite Athlete."
-        leadParagraph="I wasn't always a personal trainer. Before I got into fitness, I was significantly overweight - over 10 stone heavier than I am now. I know what it's like to feel uncomfortable in your own body."
-        sidebarImage={{ src: '/images/about/scott-transformation.jpg', alt: 'Scott James transformation story' }}
-        bodyParagraphs={[
-          "When I finally made the change, it wasn't through some miracle programme. It was through learning how to eat properly, how to train consistently, and how to build habits that actually stick.",
-          "That experience shaped everything about how I coach now. I don't believe in crash diets or unsustainable training schedules. I focus on building something that lasts.",
-          "When clients come to me feeling frustrated or like they've failed before, I get it. I've been there."
-        ]}
-        inlineStats="Over 10 stone lost personally · 10+ years coaching · 200+ clients trained"
-      />
+      <section className="py-28 bg-onyx-900">
+        <div className="max-w-4xl mx-auto px-6">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-medium tracking-widest uppercase mb-8 bg-brand-900/30 text-brand-400 border border-brand-500/20">
+            My Story
+          </span>
+          <h2 className="text-3xl md:text-5xl font-light text-white tracking-tight mb-8">From Obese to Elite Athlete.</h2>
+          <p className="text-xl text-gray-300 leading-relaxed mb-8">
+            I wasn't always a personal trainer. Before I got into fitness, I was significantly overweight - over 10 stone heavier than I am now. I know what it's like to feel uncomfortable in your own body.
+          </p>
+          <p className="text-gray-400 leading-relaxed mb-6">When I finally made the change, it wasn't through some miracle programme. It was through learning how to eat properly, how to train consistently, and how to build habits that actually stick.</p>
+          <p className="text-gray-400 leading-relaxed mb-6">That experience shaped everything about how I coach now. I don't believe in crash diets or unsustainable training schedules. I focus on building something that lasts.</p>
+          <p className="text-gray-400 leading-relaxed mb-6">When clients come to me feeling frustrated or like they've failed before, I get it. I've been there.</p>
+          <p className="text-gray-500 text-sm mt-8 pt-6 border-t border-white/5">Over 10 stone lost personally · 10+ years coaching · 200+ clients trained</p>
+
+          {/* Centred before/after image */}
+          <div className="mt-12 flex justify-center">
+            <div className="rounded-3xl overflow-hidden border border-white/10 max-w-2xl w-full">
+              <img 
+                src="/images/about/scott-transformation.jpg" 
+                alt="Scott James transformation story" 
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Philosophy Quote */}
       <SignaturePhilosophyBlock

@@ -23,7 +23,8 @@ export const articles = [
     categorySlug: 'fat-loss',
     readingTime: '8 min read',
     featured: false,
-    date: '2026-01-10'
+    date: '2026-01-10',
+    image: '/images/unused/1.jpg'
   },
   {
     slug: 'hyrox-training-101-first-race',
@@ -83,9 +84,9 @@ const ArticleCard = ({ article }: { article: typeof articles[0] }) => {
   
   if (article.categorySlug === 'hyrox') {
     imagePosition = 'object-center';
-  } else if (article.slug === 'track-macros-without-losing-mind') {
-    imagePosition = 'object-center';
   }
+
+  const imageSrc = (article as any).image || `/images/resources/articles/${article.slug}.jpg`;
   
   return (
     <Link 
@@ -95,7 +96,7 @@ const ArticleCard = ({ article }: { article: typeof articles[0] }) => {
       {/* Featured Image */}
       <div className="relative aspect-[16/9]">
         <img 
-          src={`/images/resources/articles/${article.slug}.jpg`}
+          src={imageSrc}
           alt={article.title}
           className={`w-full h-full object-cover ${imagePosition}`}
         />
@@ -157,7 +158,7 @@ export default function ResourcesPage({ onApply }: { onApply: () => void }) {
         subtitle="In-depth guides on fat loss, Hyrox training, and building sustainable fitness habits. No fluff, no sales pitches - just useful information based on what actually works."
         height="medium"
         overlayIntensity="heavy"
-        imagePosition="center 20%"
+        imagePosition="center 40%"
       />
 
       {/* Category Filter */}
@@ -234,7 +235,8 @@ export default function ResourcesPage({ onApply }: { onApply: () => void }) {
               <img 
                 src="/images/resources/fat-loss-guide-cover.jpg"
                 alt="Fat Loss Guide cover"
-                className="w-full aspect-[16/9] object-cover rounded-2xl mb-6"
+                className="w-full aspect-[16/9] object-cover rounded-2xl mb-8"
+                style={{ objectPosition: 'center 40%' }}
               />
 
               {submitted ? (

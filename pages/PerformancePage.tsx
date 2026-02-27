@@ -214,15 +214,15 @@ export default function PerformancePage({ onApply }: { onApply: () => void }) {
       <Section spacing="large">
         <div className="max-w-4xl mx-auto">
           <div className="mb-12">
-            <p className="text-brand-400 text-sm tracking-widest uppercase mb-6">Results</p>
-            <h2 className="text-3xl md:text-4xl font-light text-white tracking-tight">Performance results</h2>
+            <p className="text-brand-400 text-sm tracking-widest uppercase mb-6">Performance Results</p>
+            <h2 className="text-3xl md:text-4xl font-light text-white tracking-tight">Performance Results</h2>
           </div>
 
           {/* Featured Testimonial */}
           <ProofTestimonial
             featured
             quote="I'd done a couple of Hyrox events before working with Scott but my times had plateaued. The structured programming made all the difference - dropped 8 minutes off my time in one training block."
-            name="Chris P."
+            name="Mark Z."
             context="Hyrox competitor, 2 years training"
             metric={{ value: "-8 min", label: "PB improvement" }}
           />

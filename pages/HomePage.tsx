@@ -26,6 +26,7 @@ const Hero = ({ onApply }: { onApply: () => void }) => {
           src="/images/home/hero-background.jpg" 
           alt="Scott James Training"
           className="w-full h-full object-cover opacity-30"
+          style={{ objectPosition: 'center 30%' }}
         />
       </div>
 
@@ -347,9 +348,9 @@ const SocialProof = () => {
       context: "Hyrox competitor"
     },
     {
-      quote: "At 45, I thought doing a triathlon was unrealistic. Scott helped me build up sensibly over 6 months, working around a dodgy knee.",
-      name: "Helen R.",
-      context: "First triathlon at 45"
+      quote: "As a busy mum, Scott has given me structure, a clear plan, and stability — while also pushing me out of my comfort zone.",
+      name: "Jenna R.",
+      context: "Busy mum"
     },
     {
       quote: "After my stroke, I didn't know if I'd ever train properly again. Two years later, I'm lifting more than I was before the stroke.",
