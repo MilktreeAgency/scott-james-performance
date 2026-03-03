@@ -129,14 +129,41 @@ const ArticleCard = ({ article }: { article: typeof articles[0] }) => {
 };
 
 export default function ResourcesPage({ onApply }: { onApply: () => void }) {
-  const [email, setEmail] = React.useState('');
-  const [submitted, setSubmitted] = React.useState(false);
+  const [guideEmail, setGuideEmail] = React.useState('');
+  const [guideSubmitted, setGuideSubmitted] = React.useState(false);
+  const [newsletterEmail, setNewsletterEmail] = React.useState('');
+  const [newsletterSubmitted, setNewsletterSubmitted] = React.useState(false);
   const [activeCategory, setActiveCategory] = React.useState('all');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleGuideSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Email submitted:', email);
-    setSubmitted(true);
+    try {
+      await fetch('https://formspree.io/f/mbdavenl', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          email: guideEmail,
+          form_type: 'Free Guide Download',
+          guide_link: 'https://www.scottjamespt.co.uk/guides/fat-loss-guide.pdf',
+        }),
+      });
+    } catch (_) {}
+    setGuideSubmitted(true);
+  };
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await fetch('https://formspree.io/f/mbdavenl', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          email: newsletterEmail,
+          form_type: 'Newsletter Subscribe',
+        }),
+      });
+    } catch (_) {}
+    setNewsletterSubmitted(true);
   };
 
   // Filter articles by category
@@ -158,7 +185,7 @@ export default function ResourcesPage({ onApply }: { onApply: () => void }) {
         subtitle="In-depth guides on fat loss, Hyrox training, and building sustainable fitness habits. No fluff, no sales pitches - just useful information based on what actually works."
         height="medium"
         overlayIntensity="heavy"
-        imagePosition="center 40%"
+        imagePosition="center top"
       />
 
       {/* Category Filter */}
@@ -239,18 +266,18 @@ export default function ResourcesPage({ onApply }: { onApply: () => void }) {
                 style={{ objectPosition: 'center 40%' }}
               />
 
-              {submitted ? (
+              {guideSubmitted ? (
                 <div className="text-center py-4">
                   <CheckCircle2 className="w-12 h-12 text-brand-500 mx-auto mb-4" />
                   <p className="text-white font-medium text-lg">Check your inbox</p>
                   <p className="text-gray-400 text-sm">The guide is on its way.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleGuideSubmit}>
                   <input
                     type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={guideEmail}
+                    onChange={(e) => setGuideEmail(e.target.value)}
                     placeholder="your@email.com"
                     required
                     className="w-full bg-onyx-900 border border-white/10 rounded-xl px-4 py-4 text-white placeholder-gray-500 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 transition-all mb-4"
@@ -285,18 +312,18 @@ export default function ResourcesPage({ onApply }: { onApply: () => void }) {
             Occasional emails with practical training and nutrition content. No spam, no sales pitches.
           </p>
           
-          {submitted ? (
+          {newsletterSubmitted ? (
             <div className="bg-brand-500/10 border border-brand-500/20 rounded-3xl p-8 inline-block">
               <CheckCircle2 className="w-10 h-10 text-brand-500 mx-auto mb-4" />
               <p className="text-white font-medium text-lg">You're on the list</p>
               <p className="text-gray-400">I'll be in touch when there's something worth sharing.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
                 type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
                 placeholder="your@email.com"
                 required
                 className="flex-1 bg-onyx-900 border border-white/10 rounded-full px-6 py-4 text-white placeholder-gray-500 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 transition-all"

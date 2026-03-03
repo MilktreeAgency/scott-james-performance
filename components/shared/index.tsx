@@ -124,9 +124,9 @@ export const FullBleedHero = ({
   };
   
   const overlayClasses = {
-    light: 'from-onyx-950/40 via-onyx-950/60 to-onyx-950',
-    medium: 'from-onyx-950/50 via-onyx-950/80 to-onyx-950',
-    heavy: 'from-onyx-950/70 via-onyx-950/90 to-onyx-950'
+    light: 'from-onyx-950/25 via-onyx-950/45 to-onyx-950',
+    medium: 'from-onyx-950/35 via-onyx-950/65 to-onyx-950',
+    heavy: 'from-onyx-950/55 via-onyx-950/75 to-onyx-950'
   };
 
   return (
@@ -258,9 +258,9 @@ export const BackgroundImageSection = ({
   className = ''
 }: BackgroundImageSectionProps) => {
   const overlayClasses = {
-    light: 'bg-onyx-950/60',
-    medium: 'bg-onyx-950/80',
-    heavy: 'bg-onyx-950/90'
+    light: 'bg-onyx-950/45',
+    medium: 'bg-onyx-950/65',
+    heavy: 'bg-onyx-950/75'
   };
 
   return (

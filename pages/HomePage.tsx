@@ -20,7 +20,7 @@ const Hero = ({ onApply }: { onApply: () => void }) => {
     <section className="relative min-h-screen flex items-center pt-32 pb-24 overflow-hidden bg-onyx-950">
       {/* Subtle Background */}
       <div className="absolute inset-0 z-0">
-         <div className="absolute inset-0 bg-gradient-to-b from-onyx-950/30 via-onyx-950/90 to-onyx-950 z-10" />
+         <div className="absolute inset-0 bg-gradient-to-b from-onyx-950/15 via-onyx-950/75 to-onyx-950 z-10" />
          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-brand-950/20 via-transparent to-transparent z-10" />
          <img 
           src="/images/home/hero-background.jpg" 

@@ -179,7 +179,7 @@ export default function FatLossPage({ onApply }: { onApply: () => void }) {
           <ProofTestimonial
             featured
             quote="I'd tried every diet going - keto, intermittent fasting, you name it. The difference with Scott was that we built habits gradually. A year later, I'm down 3 stone and I've kept it off because nothing feels extreme."
-            name="Laurie W."
+            name="Emma L."
             context="Working mum, lost 3 stone over 12 months"
             metric={{ value: "3st", label: "Lost & maintained" }}
           />

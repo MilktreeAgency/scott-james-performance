@@ -55,6 +55,8 @@ function ScrollToTop() {
 const BookingModal = () => {
   const { showBookingModal, setShowBookingModal } = useModal();
   const [step, setStep] = useState(1);
+  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -84,12 +86,33 @@ const BookingModal = () => {
   const handleClose = () => {
     setShowBookingModal(false);
     setStep(1);
+    setSubmitted(false);
+    setSubmitting(false);
   };
 
-  const handleSubmit = () => {
-    console.log('Form submitted:', formData);
-    alert('Thank you! Scott will review your application and be in touch within 24 hours.');
-    handleClose();
+  const handleSubmit = async () => {
+    setSubmitting(true);
+    try {
+      await fetch('https://formspree.io/f/xzdalqlk', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          gender: formData.gender,
+          fitness_level: formData.fitnessLevel,
+          primary_goal: formData.primaryGoal,
+          health_issues: formData.healthIssues,
+          availability: formData.availability,
+          investment_ready: formData.investmentReady,
+        }),
+      });
+    } catch (_) {
+      // Fail silently — still show success
+    }
+    setSubmitting(false);
+    setSubmitted(true);
     setFormData({
       name: '', email: '', phone: '', gender: '', fitnessLevel: '',
       primaryGoal: '', healthIssues: '', availability: '', investmentReady: ''
@@ -175,8 +198,26 @@ const BookingModal = () => {
 
         <div className="overflow-y-auto max-h-[calc(95vh-200px)] sm:max-h-[calc(90vh-220px)]">
           <div className="p-4 sm:p-8">
-            
-            {step === 1 && (
+
+            {submitted ? (
+              <div className="flex flex-col items-center justify-center py-12 text-center" style={{ animation: 'fadeIn 0.3s ease-out' }}>
+                <div className="w-16 h-16 rounded-full bg-brand-500/20 flex items-center justify-center mb-6">
+                  <CheckCircle2 className="w-8 h-8 text-brand-500" />
+                </div>
+                <h4 className="text-xl sm:text-2xl font-bold text-white mb-3">Application received</h4>
+                <p className="text-gray-400 text-sm sm:text-base max-w-xs">
+                  Thank you! Scott will review your application and be in touch within 24 hours.
+                </p>
+                <button
+                  onClick={handleClose}
+                  className="mt-8 px-8 py-3 bg-white text-onyx-950 font-medium rounded-full hover:bg-gray-100 transition-all duration-300 text-sm"
+                >
+                  Close
+                </button>
+              </div>
+            ) : null}
+
+            {!submitted && step === 1 && (
               <div className="space-y-4 sm:space-y-5" style={{ animation: 'fadeIn 0.3s ease-out' }}>
                 <div className="text-center mb-4 sm:mb-6">
                   <div className={`w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-xl sm:rounded-2xl bg-gradient-to-br ${stepColors[0]} flex items-center justify-center`}>
@@ -223,7 +264,7 @@ const BookingModal = () => {
               </div>
             )}
 
-            {step === 2 && (
+            {!submitted && step === 2 && (
               <div className="space-y-4 sm:space-y-5" style={{ animation: 'fadeIn 0.3s ease-out' }}>
                 <div className="text-center mb-4 sm:mb-6">
                   <div className={`w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-xl sm:rounded-2xl bg-gradient-to-br ${stepColors[1]} flex items-center justify-center`}>
@@ -261,7 +302,7 @@ const BookingModal = () => {
               </div>
             )}
 
-            {step === 3 && (
+            {!submitted && step === 3 && (
               <div className="space-y-4 sm:space-y-5" style={{ animation: 'fadeIn 0.3s ease-out' }}>
                 <div className="text-center mb-4 sm:mb-6">
                   <div className={`w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-xl sm:rounded-2xl bg-gradient-to-br ${stepColors[2]} flex items-center justify-center`}>
@@ -303,7 +344,7 @@ const BookingModal = () => {
               </div>
             )}
 
-            {step === 4 && (
+            {!submitted && step === 4 && (
               <div className="space-y-4 sm:space-y-5" style={{ animation: 'fadeIn 0.3s ease-out' }}>
                 <div className="text-center mb-4 sm:mb-6">
                   <div className={`w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-xl sm:rounded-2xl bg-gradient-to-br ${stepColors[3]} flex items-center justify-center`}>
@@ -346,7 +387,7 @@ const BookingModal = () => {
               </div>
             )}
 
-            {step === 5 && (
+            {!submitted && step === 5 && (
               <div className="space-y-4 sm:space-y-5" style={{ animation: 'fadeIn 0.3s ease-out' }}>
                 <div className="text-center mb-4 sm:mb-6">
                   <div className={`w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-xl sm:rounded-2xl bg-gradient-to-br ${stepColors[4]} flex items-center justify-center`}>
@@ -377,7 +418,7 @@ const BookingModal = () => {
               </div>
             )}
 
-            {step === 6 && (
+            {!submitted && step === 6 && (
               <div className="space-y-5 sm:space-y-6" style={{ animation: 'fadeIn 0.3s ease-out' }}>
                 <div className="text-center mb-4 sm:mb-6">
                   <div className={`w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-xl sm:rounded-2xl bg-gradient-to-br ${stepColors[5]} flex items-center justify-center`}>
@@ -453,7 +494,7 @@ const BookingModal = () => {
           </div>
         </div>
 
-        <div className="sticky bottom-0 bg-gradient-to-t from-onyx-950 to-onyx-950/95 backdrop-blur-sm border-t border-white/10 p-3 sm:p-6">
+        {!submitted && <div className="sticky bottom-0 bg-gradient-to-t from-onyx-950 to-onyx-950/95 backdrop-blur-sm border-t border-white/10 p-3 sm:p-6">
           <div className="flex gap-2.5 sm:gap-3">
             {step > 1 && (
               <button
@@ -486,11 +527,11 @@ const BookingModal = () => {
                     : 'bg-white/5 text-gray-500 cursor-not-allowed'
                 }`}
               >
-                Submit <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                {submitting ? 'Submitting...' : 'Submit'} <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </button>
             )}
           </div>
-        </div>
+        </div>}
       </div>
 
       <style>{`

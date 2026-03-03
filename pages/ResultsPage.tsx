@@ -35,7 +35,7 @@ Scott, thank you legend!`,
     id: 'laurie',
     name: 'Laurie W.',
     image: '/images/results/laurie-w.jpg',
-    result: '-3 stone',
+    result: '',
     duration: '12 months',
     context: 'Fat loss coaching',
     shortQuote: 'The structured approach made all the difference. No more guessing, just follow the plan and trust the process.',
@@ -43,21 +43,22 @@ Scott, thank you legend!`,
   },
   {
     id: 'helen',
-    name: 'Helen R.',
+    name: 'Jenna R.',
     image: '/images/results/helen-r.jpg',
-    result: 'First triathlon',
+    result: '',
     duration: '6 months',
     context: 'Performance coaching',
-    shortQuote: 'At 45, I thought doing a triathlon was unrealistic. Scott helped me build up sensibly, working around old injuries.',
-    fullQuote: 'At 45, I thought doing a triathlon was unrealistic. Scott helped me build up sensibly over 6 months, working around a dodgy knee. The programming was smart and progressive, never pushing too hard but always challenging enough to see progress.'
+    shortQuote: 'As a busy mum, Scott has given me structure, a clear plan and stability - while also pushing me out of my comfort zone.',
+    fullQuote: 'As a busy mum, Scott has given me structure, a clear plan and stability - while also pushing me out of my comfort zone.'
   },
   {
     id: 'penny',
     name: 'Penny F.',
     image: '/images/results/penny-f.jpg',
-    result: '-7kg',
+    result: '',
     duration: 'Online coaching',
     context: '80/20 method',
+    imagePosition: 'top',
     shortQuote: 'I\'ve learned how to follow a balanced, sustainable approach. I genuinely feel like a brand new woman.',
     fullQuote: 'Scott\'s online coaching programme completely changed the way I approach food and training. I\'ve learned how to follow a balanced, sustainable approach using the 80/20 method, which has made everything feel realistic and maintainable. I\'ve lost 7kg and genuinely feel like a brand new woman.'
   },
@@ -155,14 +156,17 @@ export default function ResultsPage({ onApply }: { onApply: () => void }) {
                       src={testimonial.image} 
                       alt={testimonial.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      style={{ objectPosition: (testimonial as any).imagePosition ?? 'center' }}
                     />
                     {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-onyx-900 via-onyx-900/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-onyx-900 via-onyx-900/05 to-transparent" />
                     
                     {/* Result badge */}
-                    <div className="absolute top-4 right-4 bg-onyx-950/80 backdrop-blur-sm rounded-full px-3 py-1.5 border border-white/10">
-                      <span className="text-brand-400 text-sm font-medium">{testimonial.result}</span>
-                    </div>
+                    {testimonial.result && (
+                      <div className="absolute top-4 right-4 bg-onyx-950/80 backdrop-blur-sm rounded-full px-3 py-1.5 border border-white/10">
+                        <span className="text-brand-400 text-sm font-medium">{testimonial.result}</span>
+                      </div>
+                    )}
 
                     {/* Content overlay at bottom */}
                     <div className="absolute bottom-0 left-0 right-0 p-5">
@@ -200,11 +204,11 @@ export default function ResultsPage({ onApply }: { onApply: () => void }) {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Image */}
             <div className="relative">
-              <div className="aspect-[4/5] rounded-3xl overflow-hidden border border-white/10">
+              <div className="aspect-[535/520] rounded-3xl overflow-hidden border border-white/10">
                 <img 
                   src={featuredTestimonial.image} 
                   alt={featuredTestimonial.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
               {/* Floating stats card */}
